@@ -5,6 +5,7 @@ from google.cloud import tasks_v2
 from google.protobuf import duration_pb2, timestamp_pb2
 import asyncio
 import os
+import uuid
 
 PROJECT_ID = os.environ.get("GOOGLE_PROJECT_ID")
 LOCATION_ID = os.environ.get("GOOGLE_LOCATION_ID")
@@ -92,6 +93,7 @@ async def create_http_tasks(start_date, number):
         "https://reginia-aerographic-nonflakily.ngrok-free.dev/send-scheduled-workout"
     )
     json_payload = {"number": number}
+    job_marker = uuid.uuid4()
     for i in range(3):
         await create_http_task(
             project=PROJECT_ID,
@@ -100,7 +102,7 @@ async def create_http_tasks(start_date, number):
             url=target_url,
             json_payload=json_payload,
             scheduled_seconds_from_now=seconds_from_now_start + i * 24 * 60 * 60,
-            task_id=f"workouts-coming-{20 * (i + 1)}",
+            task_id=f"workout-{job_marker}-{20 * (i + 1)}",
         )
     return start_datetime.strftime(date_format)
 
