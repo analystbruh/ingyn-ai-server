@@ -1,0 +1,7 @@
+experiments/
+.vscode/
+__pycache__/
+*.json
+*.sh
+environment.yml
+*.erd
