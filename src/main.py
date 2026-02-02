@@ -99,7 +99,7 @@ async def webhook_post(data: Request):
         if body:
             number = messages[0].get("from")
         if number:
-            if "WORKOUT" in body.upper():
+            if "WORKOUT ROUTINE" in body.upper():
                 message = "Great! What day do you want start? (reply with date in '4/18/2024' format)"
                 res = await send_text(number, message)
                 return res
