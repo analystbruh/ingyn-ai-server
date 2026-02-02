@@ -10,6 +10,7 @@ import uuid
 PROJECT_ID = os.environ.get("GOOGLE_PROJECT_ID")
 LOCATION_ID = os.environ.get("GOOGLE_LOCATION_ID")
 QUEUE = os.environ.get("GOOGLE_QUEUE")
+TARGET = os.environ.get("TARGET_URL")
 
 
 async def create_http_task(
@@ -89,9 +90,6 @@ async def create_http_tasks(start_date, number):
     seconds_from_now_start = int(
         (start_datetime - datetime.datetime.now()).total_seconds()
     )
-    target_url = (
-        "https://reginia-aerographic-nonflakily.ngrok-free.dev/send-scheduled-workout"
-    )
     json_payload = {"number": number}
     job_marker = uuid.uuid4()
     for i in range(3):
@@ -99,7 +97,7 @@ async def create_http_tasks(start_date, number):
             project=PROJECT_ID,
             location=LOCATION_ID,
             queue=QUEUE,
-            url=target_url,
+            url=TARGET,
             json_payload=json_payload,
             scheduled_seconds_from_now=seconds_from_now_start + i * 24 * 60 * 60,
             task_id=f"workout-{job_marker}-{20 * (i + 1)}",
