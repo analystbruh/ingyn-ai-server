@@ -259,8 +259,8 @@ async def webhook_post(data: Request):
             if timestamp:
                 timediff = datetime.now() - datetime.fromtimestamp(int(timestamp))
                 print('MESSAGE AGE:', timediff.seconds, "SECONDS")
-                if timediff.seconds > 2 * 60:
-                    # 2 minutes
+                if timediff.seconds > 10:
+                    # 10 seconds
                     return "old message"
             body = messages[0].get("text", {}).get("body")
             waid = messages[0].get("id")
