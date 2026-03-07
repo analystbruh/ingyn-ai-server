@@ -1,8 +1,9 @@
 workouts = {
     "day_0": [
         {
-            "type": "text",
-            "text": "Welcome to your new custom program! This is your custom meal plan for this workout regiment."
+            "type":"video",
+            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%200/Motivation/Meal%20Plan%20Intro.mp4",
+            "caption": "Welcome to your new custom program! This is your custom meal plan for this workout regiment."
         },{
             "type": "image",
             "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%201/Meal%20Plans/ChatGPT%20Image%20Dec%2019%2C%202025%20at%2002_44_58%20PM.png",
