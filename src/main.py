@@ -228,7 +228,7 @@ async def send_scheduled_workout(data: Request):
         else:
             res = await send_media(number, media_type, media_url, caption)
         print(res)
-        await asyncio.sleep(3)
+        await asyncio.sleep(5)
     return "done"
 
 
@@ -282,10 +282,15 @@ async def process_incoming_message(from_num, to_num, body, wamid):
         return res
     # get last message sent to user
     last_message = await retrieve_from_sb(from_num)
+    last_message_text = last_message[0]['message']
     # compare to script
     try:
-        if last_message[0]['message'].startswith('Here’s what I’m hearing'):
+        if last_message_text.startswith('Here’s what I’m hearing'):
             next_response = questions[q5]
+        elif last_message_text == "Reply DONE when complete!" and 'done' in body.lower():
+            prompt = { "prompt": "The user has replied 'DONE' in response to completing with workout challenge. Respond with a short, nice, congratulatory message."}
+            asyncio.create_task(ingyn(from_num, {'prompt': prompt}))
+            return 'done'
         else:
             next_response = questions[last_message[0]['message']]
     except KeyError:
@@ -293,7 +298,7 @@ async def process_incoming_message(from_num, to_num, body, wamid):
         return 'done'
     # if last message sent was q1 establish question set
     qwamid = last_message[0]['wamid']
-    if last_message[0]['message'] == q1:
+    if last_message_text == q1:
         setid = qwamid
     else:
         res = await retrieve_setid_from_sb(qwamid)
