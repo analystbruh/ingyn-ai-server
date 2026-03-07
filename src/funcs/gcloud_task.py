@@ -92,7 +92,7 @@ async def create_http_tasks(start_date, number):
     job_marker = uuid.uuid4()
     for i in range(5):
         jp = {
-            "exercises": workouts[f"day_{i+1}"],
+            "exercises": workouts[f"day_{i}"],
             **json_payload
         }
         print("JSON PAYLOAD:", jp)
