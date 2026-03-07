@@ -5,19 +5,24 @@ workouts = {
             "text": "Welcome to your new custom program! This is your custom meal plan for this workout regiment."
         },{
             "type": "image",
-            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%201/Meal%20Plans/ChatGPT%20Image%20Dec%2019%2C%202025%20at%2002_44_58%20PM.png"
+            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%201/Meal%20Plans/ChatGPT%20Image%20Dec%2019%2C%202025%20at%2002_44_58%20PM.png",
+            "caption": "Day 1 Meals"
         },{
             "type": "image",
-            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%202/MEAL%20PLAN/ChatGPT%20Image%20Dec%2031%2C%202025%20at%2003_07_39%20PM.png"
+            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%202/MEAL%20PLAN/ChatGPT%20Image%20Dec%2031%2C%202025%20at%2003_07_39%20PM.png",
+            "caption": "Day 2 Meals"
         },{
             "type": "image",
-            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%203/MEAL%20PLAN/ChatGPT%20Image%20Jan%203%2C%202026%20at%2011_56_11%20AM.png"
+            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%203/MEAL%20PLAN/ChatGPT%20Image%20Jan%203%2C%202026%20at%2011_56_11%20AM.png",
+            "caption": "Day 3 Meals"
         },{
             "type": "image",
-            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%204/MEAL%20PLAN/ChatGPT%20Image%20Feb%206%2C%202026%20at%2004_05_19%20PM.png"
+            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%204/MEAL%20PLAN/ChatGPT%20Image%20Feb%206%2C%202026%20at%2004_05_19%20PM.png",
+            "caption": "Day 4 Meals"
         },{
             "type": "image",
-            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%205/MEAL%20PLAN/ChatGPT%20Image%20Feb%206%2C%202026%20at%2004_15_09%20PM.png"
+            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%205/MEAL%20PLAN/ChatGPT%20Image%20Feb%206%2C%202026%20at%2004_15_09%20PM.png",
+            "caption": "Day 5 Meals"
         },{
             "type": "text",
             "text": "Be sure to shop these items so you can be ready and energized!"
