@@ -18,7 +18,7 @@ workouts = {
             "caption": "Day 3 Meals"
         },{
             "type": "image",
-            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%204/MEAL%20PLAN/ChatGPT%20Image%20Feb%206%2C%202026%20at%2004_05_19%20PM.png",
+            "media_url": "https://storage.googleapis.com/ingyn-workouts/DAY%204/MEAL%20PLAN/da4meal.png",
             "caption": "Day 4 Meals"
         },{
             "type": "image",
