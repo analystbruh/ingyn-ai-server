@@ -90,23 +90,25 @@ async def create_http_tasks(start_date, number):
     start_datetime = start_date_obj + datetime.timedelta(hours=13)
     json_payload = { "number": number }
     job_marker = uuid.uuid4()
+    secs_from_now = int(start_datetime - datetime.datetime.now()).total_seconds()
     for i in range(6):
         jp = {
             "exercises": workouts[f"day_{i}"],
             **json_payload
         }
         print("JSON PAYLOAD:", jp)
-        seconds_from_now_start = int(
-            (start_datetime - datetime.datetime.now()).total_seconds()
-        )
+        if i == 0:
+            seconds_from_now_start = 10
+        else:
+            seconds_from_now_start = secs_from_now + (i - 1) * 24 * 60 * 60
         await create_http_task(
             project=PROJECT_ID,
             location=LOCATION_ID,
             queue=QUEUE,
             url=TARGET,
             json_payload=jp,
-            scheduled_seconds_from_now=seconds_from_now_start + i * 24 * 60 * 60,
-            task_id=f"workout-{job_marker}-{20 * (i + 1)}",
+            scheduled_seconds_from_now=seconds_from_now_start,
+            task_id=f"workout-{job_marker}-{i}",
         )
     return start_datetime.strftime(date_format)
 
