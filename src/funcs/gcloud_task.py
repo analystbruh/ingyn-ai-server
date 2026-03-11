@@ -96,16 +96,16 @@ async def create_http_tasks(start_date, number):
             **json_payload
         }
         print("JSON PAYLOAD:", jp)
-        # seconds_from_now_start = int(
-        #     (start_datetime - datetime.datetime.now()).total_seconds()
-        # )
+        seconds_from_now_start = int(
+            (start_datetime - datetime.datetime.now()).total_seconds()
+        )
         await create_http_task(
             project=PROJECT_ID,
             location=LOCATION_ID,
             queue=QUEUE,
             url=TARGET,
             json_payload=jp,
-            scheduled_seconds_from_now=i*60*5,#seconds_from_now_start + i * 24 * 60 * 60,
+            scheduled_seconds_from_now=seconds_from_now_start + i * 24 * 60 * 60,
             task_id=f"workout-{job_marker}-{20 * (i + 1)}",
         )
     return start_datetime.strftime(date_format)
