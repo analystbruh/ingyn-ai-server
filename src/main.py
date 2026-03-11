@@ -277,7 +277,7 @@ async def process_incoming_message(from_num, to_num, body, wamid):
     # write recieved message to db
     res = await record_to_sb(from_num, to_num, body, wamid)
     # check if message link message
-    if body == "I'm ready":
+    if body.strip().lower() == "i'm ready":
         res = await send_text(from_num, q1)
         return res
     # get last message sent to user

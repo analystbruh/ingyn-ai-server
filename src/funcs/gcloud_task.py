@@ -90,7 +90,7 @@ async def create_http_tasks(start_date, number):
     start_datetime = start_date_obj + datetime.timedelta(hours=13)
     json_payload = { "number": number }
     job_marker = uuid.uuid4()
-    secs_from_now = int(start_datetime - datetime.datetime.now()).total_seconds()
+    secs_from_now = int((start_datetime - datetime.datetime.now()).total_seconds())
     for i in range(6):
         jp = {
             "exercises": workouts[f"day_{i}"],
