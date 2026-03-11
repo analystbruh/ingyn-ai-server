@@ -274,6 +274,7 @@ async def webhook_post(data: Request):
 
 async def process_incoming_message(from_num, to_num, body, wamid):
     print('process_message')
+    print('FROM:', from_num, '\nBODY:', body)
     # write recieved message to db
     res = await record_to_sb(from_num, to_num, body, wamid)
     # check if message link message
