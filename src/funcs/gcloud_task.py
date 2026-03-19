@@ -7,6 +7,7 @@ import asyncio
 import os
 import uuid
 from src.funcs.workout_plan import workouts
+import dateparser
 
 PROJECT_ID = os.environ.get("GOOGLE_PROJECT_ID")
 LOCATION_ID = os.environ.get("GOOGLE_LOCATION_ID")
@@ -86,7 +87,8 @@ async def create_http_task(
 
 async def create_http_tasks(start_date, number):
     date_format = "%m/%d/%Y"
-    start_date_obj = datetime.datetime.strptime(start_date, date_format)
+    # start_date_obj = datetime.datetime.strptime(start_date, date_format)
+    start_date_obj = dateparser.parse(start_date)
     start_datetime = start_date_obj + datetime.timedelta(hours=13)
     json_payload = { "number": number }
     job_marker = uuid.uuid4()
