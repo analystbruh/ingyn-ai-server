@@ -36,6 +36,8 @@ q6 = """Perfect.
 I’ll guide you day by day — workouts, videos, meals, and check-ins.
 You won’t have to guess.
 We build this together.
+You're first workout will be sent on the day you've
+chosen to start.
 """
 
 questions = {
